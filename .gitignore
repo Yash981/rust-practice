@@ -1,0 +1,36 @@
+# Binaries and intermediates
+/target/
+**/*.rs.bk
+
+# Build artifacts
+Cargo.lock
+Cargo.lock.bk
+
+# IDE and editor files
+.vscode/
+.idea/
+*.iml
+
+# Rust-specific files
+**/Cargo.N.lock
+**/Cargo.N.lock.bk
+
+# Debugging and profiling
+*.profdata
+*.dSYM/
+*.gcda
+*.gcno
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+*.~*
+*.pdb
+*.exe
+
+# Rustfmt and Clippy artifacts
+rustfmt.toml.bk
+clippy.toml.bk
