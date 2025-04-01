@@ -10,6 +10,10 @@ fn factorial(num: u64) -> u64 {
     // - additional variables
     // For an extra challenge, don't use:
     // - recursion
+    let arr:Vec<u64> =(1..=num).collect();
+    let result = arr.iter().map(|&x| x).product();
+    return result;
+
 }
 
 fn main() {
