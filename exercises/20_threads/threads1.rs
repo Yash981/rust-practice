@@ -4,7 +4,7 @@
 // return values into a vector.
 
 use std::{
-    thread,
+    thread::{self, JoinHandle},
     time::{Duration, Instant},
 };
 
@@ -20,10 +20,12 @@ fn main() {
         handles.push(handle);
     }
 
-    let mut results = Vec::new();
+    let mut results: Vec<JoinHandle<u128>> = Vec::new();
     for handle in handles {
         // TODO: Collect the results of all threads into the `results` vector.
         // Use the `JoinHandle` struct which is returned by `thread::spawn`.
+        println!("{:?} hello",handle);
+        results.push(handle);
     }
 
     if results.len() != 10 {
@@ -32,6 +34,6 @@ fn main() {
 
     println!();
     for (i, result) in results.into_iter().enumerate() {
-        println!("Thread {i} took {result}ms");
+        println!("Thread {i} took {:?} ms",result.join());
     }
 }
