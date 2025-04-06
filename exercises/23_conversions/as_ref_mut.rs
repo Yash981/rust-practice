@@ -6,19 +6,23 @@
 // (`.len()` returns the number of bytes in a string).
 // TODO: Add the `AsRef` trait appropriately as a trait bound.
 fn byte_counter<T>(arg: T) -> usize {
-    arg.as_ref().len()
+    std::mem::size_of_val(&arg)
 }
 
 // Obtain the number of characters (not bytes) in the given argument.
 // TODO: Add the `AsRef` trait appropriately as a trait bound.
-fn char_counter<T>(arg: T) -> usize {
+fn char_counter<T: AsRef<str>>(arg: T) -> usize {
     arg.as_ref().chars().count()
 }
 
 // Squares a number using `as_mut()`.
 // TODO: Add the appropriate trait bound.
-fn num_sq<T>(arg: &mut T) {
+fn num_sq<T: AsMut<u32>>(arg: &mut T) -> u32 {
     // TODO: Implement the function body.
+    let num2 = arg.as_mut();
+    return (*num2) * (*num2);
+    
+    
 }
 
 fn main() {
